@@ -1,8 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 
 struct str {
@@ -83,6 +85,7 @@ struct stos {
 };
 
 int main() {
+    auto start = high_resolution_clock::now();
     stos stos_whole_str;
 
     // FILE READING
@@ -132,5 +135,9 @@ int main() {
     }
 
     cout << "Total sum: " << suma << endl;
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    cout << "Execution time: " << duration.count() << " ms" << endl;
     return 0;
 }

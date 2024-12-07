@@ -1,6 +1,9 @@
+import time
+
 allowed_numbers = "0123456789"
 
 if __name__ == "__main__":
+    start_time = time.time()
     total_sum = 0
     flag = True
     with open("data/Day3_file.txt", "r") as f:
@@ -43,3 +46,6 @@ if __name__ == "__main__":
                 # print(first, second)
 
     print(total_sum)
+
+    end_time = time.time()
+    print(f"Execution time: {(end_time - start_time)*1000:.2f} ms")
